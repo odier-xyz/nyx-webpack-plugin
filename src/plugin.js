@@ -15,6 +15,8 @@ export default class IndiWebpackPlugin
     {
         this.addonName = addonName;
 
+        console.log(addonPath);
+
         this.addonRootPath = addonPath;
         const addonDist = path.join(addonPath, 'dist');
         this.addonDistPath = addonDist;
