@@ -41,7 +41,7 @@ export default class IndiWebpackPlugin
         /* OUTPUT                                                                                                     */
         /*------------------------------------------------------------------------------------------------------------*/
 
-        if(compiler.options.output.library === 'undefined') {
+        if(typeof compiler.options.output.library === 'undefined') {
             compiler.options.output.library = {};
         }
 
