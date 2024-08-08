@@ -13,9 +13,9 @@ export default class IndiWebpackPlugin
 
     constructor(addonName)
     {
-        while(addonName.startsWith('addon_'))
+        if(addonName.startsWith('addon_'))
         {
-            addonName = addonName.substring(6);
+            throw 'Addon name must not start with "addon_"';
         }
 
         this.addonName = addonName;
