@@ -27,42 +27,44 @@ export default class IndiWebpackPlugin
 
     apply(compiler)
     {
+        /*------------------------------------------------------------------------------------------------------------*/
+
         const ROOT = compiler.context;
 
         const DIST = path.join(compiler.context, 'dist');
 
         /*------------------------------------------------------------------------------------------------------------*/
-        /* EXTERNALS                                                                                                  */
-        /*------------------------------------------------------------------------------------------------------------*/
 
-        if(typeof compiler.options.output === 'undefined') {
-            compiler.options.output = {};
-        }
+        compiler.hooks.beforeRun.tap('CreatePackagePlugin', () => {
 
-        /*------------------------------------------------------------------------------------------------------------*/
+            /*------------------------------------------------------------------------------------------------------------*/
+            /* EXTERNALS                                                                                                  */
+            /*------------------------------------------------------------------------------------------------------------*/
 
-        compiler.options.output['path'] = DIST;
+            if(typeof compiler.options.output === 'undefined') {
+                compiler.options.output = {};
+            }
 
-        compiler.options.output['filename'] = 'index.js';
+            /*------------------------------------------------------------------------------------------------------------*/
 
-        compiler.options.output['libraryTarget'] = 'window';
+            compiler.options.output['path'] = DIST;
 
-        /*------------------------------------------------------------------------------------------------------------*/
-        /* EXTERNALS                                                                                                  */
-        /*------------------------------------------------------------------------------------------------------------*/
+            compiler.options.output['filename'] = 'index.js';
 
-        if(typeof compiler.options.externals === 'undefined') {
-            compiler.options.externals = {};
-        }
+            compiler.options.output['libraryTarget'] = 'window';
 
-        compiler.options.externals['vue'] = 'Vue';
-        compiler.options.externals['vue-router'] = 'VueRouter';
-        compiler.options.externals['bootstrap'] = 'Bootstrap';
-        compiler.options.externals['chart.js/auto'] = 'Chart';
+            /*------------------------------------------------------------------------------------------------------------*/
+            /* EXTERNALS                                                                                                  */
+            /*------------------------------------------------------------------------------------------------------------*/
 
-        /*------------------------------------------------------------------------------------------------------------*/
+            if(typeof compiler.options.externals === 'undefined') {
+                compiler.options.externals = {};
+            }
 
-        compiler.hooks.done.tap('CreatePackagePlugin', () => {
+            compiler.options.externals['vue'] = 'Vue';
+            compiler.options.externals['vue-router'] = 'VueRouter';
+            compiler.options.externals['bootstrap'] = 'Bootstrap';
+            compiler.options.externals['chart.js/auto'] = 'Chart';
 
             /*--------------------------------------------------------------------------------------------------------*/
             /* PACKAGE.JSON                                                                                           */
