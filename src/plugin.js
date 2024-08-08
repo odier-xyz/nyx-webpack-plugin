@@ -11,25 +11,23 @@ export default class IndiWebpackPlugin
 {
     /*----------------------------------------------------------------------------------------------------------------*/
 
-    constructor(addonName, addonPath)
+    constructor(addonName)
     {
+        while(addonName.startsWith('addon_'))
+        {
+            addonName = addonName.substring(6);
+        }
+
         this.addonName = addonName;
-
-        console.log(addonPath);
-
-        this.addonRootPath = addonPath;
-        const addonDist = path.join(addonPath, 'dist');
-        this.addonDistPath = addonDist;
     }
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
     apply(compiler)
     {
-        console.log('ok> ' + compiler.context);
+        const ROOT = compiler.context;
 
-        const ROOT = this.addonRootPath;
-        const DIST = this.addonDistPath;
+        const DIST = path.join(compiler.context, 'dist');
 
         /*------------------------------------------------------------------------------------------------------------*/
         /* EXTERNALS                                                                                                  */
