@@ -28,7 +28,7 @@ export default class IndiWebpackPlugin
     apply(compiler)
     {
         /*------------------------------------------------------------------------------------------------------------*/
-        /*                                                                                                            */
+        /* CONST                                                                                                      */
         /*------------------------------------------------------------------------------------------------------------*/
 
         const ROOT = compiler.context;
@@ -38,36 +38,36 @@ export default class IndiWebpackPlugin
         const NAME = `addon_${this.addonName.toLowerCase().replace('-', '_')}`;
 
         /*------------------------------------------------------------------------------------------------------------*/
-        /*                                                                                                            */
+        /* OUTPUT                                                                                                     */
         /*------------------------------------------------------------------------------------------------------------*/
 
-        compiler.options.output['path'] = DIST;
+        if(compiler.options.output.library === 'undefined') {
+            compiler.options.output.library = {};
+        }
 
-        compiler.options.output['filename'] = 'index.js';
-
-        compiler.options.output['library'] = {
-            type: 'window',
-            name: NAME,
-        };
+        compiler.options.output.path = DIST;
+        compiler.options.output.filename = 'index.js';
+        compiler.options.output.library.type = 'window';
+        compiler.options.output.library.name = NAME;
 
         /*------------------------------------------------------------------------------------------------------------*/
-        /*                                                                                                            */
+        /* EXTERNALS                                                                                                  */
         /*------------------------------------------------------------------------------------------------------------*/
 
-        compiler.hooks.beforeRun.tap('CreatePackagePlugin', () => {
+        if(typeof compiler.options.externals === 'undefined') {
+            compiler.options.externals = {};
+        }
 
-            /*--------------------------------------------------------------------------------------------------------*/
-            /* EXTERNALS                                                                                              */
-            /*--------------------------------------------------------------------------------------------------------*/
+        compiler.options.externals['vue'] = 'Vue';
+        compiler.options.externals['vue-router'] = 'VueRouter';
+        compiler.options.externals['bootstrap'] = 'Bootstrap';
+        compiler.options.externals['chart.js/auto'] = 'Chart';
 
-            if(typeof compiler.options.externals === 'undefined') {
-                compiler.options.externals = {};
-            }
+        /*------------------------------------------------------------------------------------------------------------*/
+        /* AFTER EMIT HOOK                                                                                            */
+        /*------------------------------------------------------------------------------------------------------------*/
 
-            compiler.options.externals['vue'] = 'Vue';
-            compiler.options.externals['vue-router'] = 'VueRouter';
-            compiler.options.externals['bootstrap'] = 'Bootstrap';
-            compiler.options.externals['chart.js/auto'] = 'Chart';
+        compiler.hooks.afterEmit.tap('CreatePackage', () => {
 
             /*--------------------------------------------------------------------------------------------------------*/
             /* PACKAGE.JSON                                                                                           */
