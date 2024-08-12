@@ -84,6 +84,7 @@ export default class IndiWebpackPlugin
                 const DST_PACKAGE = {
                     name: this.addonName,
                     main: "index.js",
+                    entry: NAME,
                     description: SRC_PACKAGE.description || '',
                     version: SRC_PACKAGE.version || '',
                     author: SRC_PACKAGE.author || '',
