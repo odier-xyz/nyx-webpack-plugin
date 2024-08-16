@@ -58,10 +58,10 @@ export default class IndiWebpackPlugin
             compiler.options.externals = {};
         }
 
-        compiler.options.externals['vue'] = '__VUE__';
-        compiler.options.externals['vue-router'] = '__VUE_ROUTER__';
-        compiler.options.externals['bootstrap'] = '__BOOTSTRAP__';
-        compiler.options.externals['chart.js/auto'] = '__CHART__';
+        compiler.options.externals['vue'] = '__NYX_VUE__';
+        compiler.options.externals['vue-router'] = '__NYX_VUE_ROUTER__';
+        compiler.options.externals['bootstrap'] = '__NYX_BOOTSTRAP__';
+        compiler.options.externals['chart.js/auto'] = '__NYX_CHART__';
 
         /*------------------------------------------------------------------------------------------------------------*/
         /* AFTER EMIT HOOK                                                                                            */
