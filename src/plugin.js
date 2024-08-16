@@ -67,7 +67,7 @@ export default class IndiWebpackPlugin
         compiler.options.externals['bootstrap'] = '__NYX_BOOTSTRAP__';
         compiler.options.externals['bootstrap/dist/js/bootstrap.esm'] = '__NYX_BOOTSTRAP__';
 
-        compiler.options.externals['chart.js/auto'] = '__NYX_CHART__';
+        compiler.options.externals['chart.js/auto'] = '__NYX_CHARTJS__';
         compiler.options.externals['uuid'] = '__NYX_UUID__';
         compiler.options.externals['d3'] = '__NYX_D3__';
 
