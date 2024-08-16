@@ -59,9 +59,17 @@ export default class IndiWebpackPlugin
         }
 
         compiler.options.externals['vue'] = '__NYX_VUE__';
+        compiler.options.externals['vue/dist/vue.esm-bundler'] = '__NYX_VUE__';
+
         compiler.options.externals['vue-router'] = '__NYX_VUE_ROUTER__';
+        compiler.options.externals['vue-router/dist/vue-router.esm-bundler'] = '__NYX_VUE_ROUTER__';
+
         compiler.options.externals['bootstrap'] = '__NYX_BOOTSTRAP__';
+        compiler.options.externals['bootstrap/dist/js/bootstrap.esm'] = '__NYX_BOOTSTRAP__';
+
         compiler.options.externals['chart.js/auto'] = '__NYX_CHART__';
+        compiler.options.externals['uuid'] = '__NYX_UUID__';
+        compiler.options.externals['d3'] = '__NYX_D3__';
 
         /*------------------------------------------------------------------------------------------------------------*/
         /* AFTER EMIT HOOK                                                                                            */
