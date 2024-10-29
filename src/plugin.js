@@ -69,7 +69,9 @@ export default class IndiWebpackPlugin
 
         compiler.options.externals['chart.js/auto'] = '__NYX_CHARTJS__';
         compiler.options.externals['uuid'] = '__NYX_UUID__';
-        compiler.options.externals['d3'] = '__NYX_D3__';
+
+        compiler.options.externals['d3']                = '__NYX_D3__';
+        compiler.options.externals['d3-geo-projection'] = '__NYX_D3_GEO_PROJECTION__';
 
         /*------------------------------------------------------------------------------------------------------------*/
         /* AFTER EMIT HOOK                                                                                            */
