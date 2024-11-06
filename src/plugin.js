@@ -67,10 +67,13 @@ export default class IndiWebpackPlugin
         compiler.options.externals['bootstrap'] = '__NYX_BOOTSTRAP__';
         compiler.options.externals['bootstrap/dist/js/bootstrap.esm'] = '__NYX_BOOTSTRAP__';
 
+        compiler.options.externals['flatpickr'] = '__NYX_FLATPICKR__';
+        compiler.options.externals['flatpickr/dist/esm/index'] = '__NYX_FLATPICKR__';
+
         compiler.options.externals['chart.js/auto'] = '__NYX_CHARTJS__';
         compiler.options.externals['uuid'] = '__NYX_UUID__';
 
-        compiler.options.externals['d3']                = '__NYX_D3__';
+        compiler.options.externals['d3'] = '__NYX_D3__';
         compiler.options.externals['d3-geo-projection'] = '__NYX_D3_GEO_PROJECTION__';
 
         /*------------------------------------------------------------------------------------------------------------*/
