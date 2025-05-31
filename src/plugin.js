@@ -77,6 +77,27 @@ export default class IndiWebpackPlugin
         compiler.options.externals['d3-geo-projection'] = '__NYX_D3_GEO_PROJECTION__';
 
         /*------------------------------------------------------------------------------------------------------------*/
+        /* ALIASES                                                                                                    */
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        if(typeof compiler.options.resolve.alias === 'undefined') {
+            compiler.options.resolve.alias = {};
+        }
+
+        compiler.options.resolve.alias['vue'] = false;
+        compiler.options.resolve.alias['vue/dist/vue.esm-bundler'] = false;
+
+        compiler.options.resolve.alias['vue-router'] = false;
+        compiler.options.resolve.alias['vue-router/dist/vue-router.esm-bundler'] = false;
+
+        compiler.options.resolve.alias['bootstrap'] = false;
+        compiler.options.resolve.alias['bootstrap/dist/js/bootstrap.esm'] = false;
+
+        compiler.options.resolve.alias['chart.js/auto'] = false;
+        compiler.options.resolve.alias['uuid'] = false;
+        compiler.options.resolve.alias['d3'] = false;
+
+        /*------------------------------------------------------------------------------------------------------------*/
         /* AFTER EMIT HOOK                                                                                            */
         /*------------------------------------------------------------------------------------------------------------*/
 
