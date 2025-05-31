@@ -93,9 +93,14 @@ export default class IndiWebpackPlugin
         compiler.options.resolve.alias['bootstrap'] = false;
         compiler.options.resolve.alias['bootstrap/dist/js/bootstrap.esm'] = false;
 
+        compiler.options.resolve.alias['flatpickr'] = false;
+        compiler.options.resolve.alias['flatpickr/dist/esm/index'] = false;
+
         compiler.options.resolve.alias['chart.js/auto'] = false;
         compiler.options.resolve.alias['uuid'] = false;
+
         compiler.options.resolve.alias['d3'] = false;
+        compiler.options.resolve.alias['d3-geo-projection'] = false;
 
         /*------------------------------------------------------------------------------------------------------------*/
         /* AFTER EMIT HOOK                                                                                            */
