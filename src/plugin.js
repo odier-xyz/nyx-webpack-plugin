@@ -70,10 +70,13 @@ export default class IndiWebpackPlugin
         compiler.options.externals['flatpickr'] = '__NYX_FLATPICKR__';
         compiler.options.externals['flatpickr/dist/esm/index'] = '__NYX_FLATPICKR__';
 
+        compiler.options.externals['vuedraggable'] = '__NYX_DRAGGABLE__';
         compiler.options.externals['chart.js/auto'] = '__NYX_CHARTJS__';
         compiler.options.externals['uuid'] = '__NYX_UUID__';
 
         compiler.options.externals['d3'] = '__NYX_D3__';
+        compiler.options.externals['d3-zoom'] = '__NYX_D3_ZOOM__';
+        compiler.options.externals['d3-selection'] = '__NYX_D3_SELECTION__';
         compiler.options.externals['d3-geo-projection'] = '__NYX_D3_GEO_PROJECTION__';
 
         /*------------------------------------------------------------------------------------------------------------*/
@@ -96,10 +99,13 @@ export default class IndiWebpackPlugin
         compiler.options.resolve.alias['flatpickr'] = false;
         compiler.options.resolve.alias['flatpickr/dist/esm/index'] = false;
 
+        compiler.options.resolve.alias['vuedraggable'] = false;
         compiler.options.resolve.alias['chart.js/auto'] = false;
         compiler.options.resolve.alias['uuid'] = false;
 
         compiler.options.resolve.alias['d3'] = false;
+        compiler.options.resolve.alias['d3-zoom'] = false;
+        compiler.options.resolve.alias['d3-selection'] = false;
         compiler.options.resolve.alias['d3-geo-projection'] = false;
 
         /*------------------------------------------------------------------------------------------------------------*/
