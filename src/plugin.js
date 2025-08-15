@@ -1,4 +1,4 @@
-// noinspection JSUnusedGlobalSymbols
+// noinspection JSUnusedGlobalSymbols, JSUnresolvedReference
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import * as fs from 'fs';
